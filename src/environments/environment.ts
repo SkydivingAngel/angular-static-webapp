@@ -1,0 +1,1 @@
+export const environment = {basePath: 'https://localhost:44306/api'};

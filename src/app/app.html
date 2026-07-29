@@ -233,7 +233,20 @@
         </defs>
       </svg>
       <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+      <p>{{ myvariable }} Congratulations! Your app is running. 🎉</p>
+      <select [formField]="orderForm.product">
+      <option value="">Choose product</option>
+      <option value="laptop">Laptop</option>
+      <option value="tablet">Tablet</option>
+    </select>
+
+      @if(orderForm.product().invalid()) {
+        <small>
+          @for(error of orderForm.product().errors(); track error.kind) {
+            {{ error.message }}
+          }
+        </small>
+      }
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
